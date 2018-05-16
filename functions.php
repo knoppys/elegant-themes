@@ -528,3 +528,17 @@ function download_callback(){
 add_action('admin_post_knoppys_brochure_download', 'download_callback');
 add_action('admin_post_nopriv_knoppys_brochure_download', 'download_callback');
 
+function jmo_screen_layout_columns($columns) {
+  $columns['dashboard'] = 2;
+  
+  return $columns;
+}
+
+add_filter('screen_layout_columns', 'jmo_screen_layout_columns');
+
+function jmo_screen_layout_dashboard() { 
+  return 2; 
+}
+
+add_filter('get_user_option_screen_layout_dashboard', 'jmo_screen_layout_dashboard');
+
